@@ -14,40 +14,17 @@ public class testeDaForca {
         return forcasCandidatos;
     }
 
-    public static void ordenarForcas(int[] forcasCandidatos, int inicio, int fim){
-        int meio = 0;
+    public static void ordenarForcas(int[] forcasCandidatos){
+        int ajuda = 0;
 
-        if (inicio < fim - 1) {
-             meio = (inicio + fim) / 2;
-             ordenarForcas(forcasCandidatos, inicio, meio);
-             ordenarForcas(forcasCandidatos, meio, fim);
-            doMerge(forcasCandidatos, inicio, meio, fim);
-        }
-    }
-
-    public static void doMerge(int[] forcasCandidatos, int inicio, int meio, int fim){
-        int i = inicio, j = meio, k = 0;
-
-        int[] vetorAux = new int[fim - inicio];
-
-        while (i < meio && j < fim) {
-            if (forcasCandidatos[i] <= forcasCandidatos[j]) {
-                vetorAux[k++] = forcasCandidatos[i++];
-            } else{
-                vetorAux[k++] = forcasCandidatos[j++];
+        for (int i = 0; i < forcasCandidatos.length; i++) {
+            for (int j = i; j < forcasCandidatos.length; j++) {
+                if (forcasCandidatos[j] > forcasCandidatos[i]) {
+                    ajuda = forcasCandidatos[j];
+                    forcasCandidatos[j] = forcasCandidatos[i];
+                    forcasCandidatos[i] = ajuda;
+                }
             }
-        }
-
-        while (i < meio) {
-            vetorAux[k++] = forcasCandidatos[i++];
-        }
-
-        while (j < fim) {
-            vetorAux[k++] = forcasCandidatos[j++];
-        }
-
-        for (int l = inicio; l < fim; ++l) {
-            forcasCandidatos[i] = vetorAux[l - inicio];
         }
 
     }
@@ -55,7 +32,7 @@ public class testeDaForca {
     public static int calcularSomaDosMaiores(int[] forcasCandidatos, int qntCandidatosAceitos){
         int soma = 0;
         
-        for (int i = forcasCandidatos.length - qntCandidatosAceitos; i <= forcasCandidatos.length; i++) {
+        for (int i = 0; i < qntCandidatosAceitos; i++) {
             soma += forcasCandidatos[i];
         }
 
@@ -71,9 +48,7 @@ public class testeDaForca {
             int qntPontosForca = tecladoScanner.nextInt();
             int qntCandidatosAceitos = tecladoScanner.nextInt();
             int[] forcasCandidatos = lerForcas(qntPontosForca);
-            int inicio = 0;
-            int fim = forcasCandidatos.length;
-            ordenarForcas(forcasCandidatos, inicio, fim);
+            ordenarForcas(forcasCandidatos);
 
             int somaDasMaioresForcas = calcularSomaDosMaiores(forcasCandidatos, qntCandidatosAceitos);
 
