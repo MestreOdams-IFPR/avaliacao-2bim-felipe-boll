@@ -7,7 +7,7 @@ public class sentencaDancante {
     public static char[] sentencaDancante(char[] charSentenca){    
         for (int i = 0; i < charSentenca.length - 1; i++) {
             if (i == 0) {
-                
+
             }
         }
     }
