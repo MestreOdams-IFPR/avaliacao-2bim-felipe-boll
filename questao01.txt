@@ -1,1 +1,1 @@
-Na codigo ele esta fazendo invertendo um vetor com recursividade;
+Na codigo ele esta invertendo um vetor com recursividade;
