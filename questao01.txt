@@ -1,0 +1,1 @@
+Na codigo ele esta fazendo um ordenando um vetor com um insertionSort recursivo, trocando os valores de lugar enquanto e for maior igual que d;
