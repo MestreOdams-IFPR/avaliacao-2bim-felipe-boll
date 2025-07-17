@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class testeDaForca {
-    
+
     public static Scanner tecladoScanner = new Scanner(System.in);
 
-    public static int[] lerForcas(int qntPontosForca){
+    public static int[] lerForcas(int qntPontosForca) {
         int[] forcasCandidatos = new int[qntPontosForca];
 
         for (int i = 0; i < forcasCandidatos.length; i++) {
@@ -14,7 +14,7 @@ public class testeDaForca {
         return forcasCandidatos;
     }
 
-    public static void ordenarForcas(int[] forcasCandidatos){
+    public static void ordenarForcas(int[] forcasCandidatos) {
         int ajuda = 0;
 
         for (int i = 0; i < forcasCandidatos.length; i++) {
@@ -29,9 +29,9 @@ public class testeDaForca {
 
     }
 
-    public static int calcularSomaDosMaiores(int[] forcasCandidatos, int qntCandidatosAceitos){
+    public static int calcularSomaDosMaiores(int[] forcasCandidatos, int qntCandidatosAceitos) {
         int soma = 0;
-        
+
         for (int i = 0; i < qntCandidatosAceitos; i++) {
             soma += forcasCandidatos[i];
         }
@@ -39,10 +39,10 @@ public class testeDaForca {
         return soma;
     }
 
-    public static void mensagem(int somaDasMaioresForcas){
+    public static void mensagem(int somaDasMaioresForcas) {
         System.out.println(somaDasMaioresForcas);
     }
-    
+
     public static void main(String[] args) {
         while (tecladoScanner.hasNext()) {
             int qntPontosForca = tecladoScanner.nextInt();
@@ -53,7 +53,7 @@ public class testeDaForca {
             int somaDasMaioresForcas = calcularSomaDosMaiores(forcasCandidatos, qntCandidatosAceitos);
 
             mensagem(somaDasMaioresForcas);
-            
+
         }
     }
 }
